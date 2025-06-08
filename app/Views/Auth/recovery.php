@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/../../Config/Database.php';
 require __DIR__ . '/../../../vendor/autoload.php';
 
 error_reporting(E_ALL);
@@ -7,14 +8,16 @@ ini_set('display_errors', 1);
 
 // Nombre : PHPMailer
 // Contraseña: wcrb nibs sbhe fywe
+use App\Config\Database;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
+// Ajusta la ruta a la raíz de tu proyecto (normalmente 2 niveles arriba si estás en app/Models)
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../../../');
+$dotenv->load();
 
-$mysqli = new mysqli("localhost", "root", "", "geroynatis");
-if ($mysqli->connect_errno) {
-    die("Error al conectar: " . $mysqli->connect_error); // Mostrar error si falla la conexión
-}
+$mysqli = Database::getConnection();
 
 $correo = $_POST['correo'];
 $sql = "SELECT * FROM `usuario` WHERE correo = '$correo' AND id_estado = 3;";

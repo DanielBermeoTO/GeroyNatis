@@ -4,12 +4,21 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$mysqli = new mysqli("localhost", "root", "", "geroynatis");
-if ($mysqli->connect_errno) {
-    die("Error al conectar: " . $mysqli->connect_error);
-}
+require_once __DIR__ . '/../../Config/Database.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';  
+
+
+
+use App\Config\Database;
+use Dotenv\Dotenv;
+
+// Ajusta la ruta a la raíz de tu proyecto (normalmente 2 niveles arriba si estás en app/Models)
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../../../');
+$dotenv->load();
 
 session_start(); // Iniciar sesión
+
+$mysqli = Database::getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $documento = $_POST['documento'];
