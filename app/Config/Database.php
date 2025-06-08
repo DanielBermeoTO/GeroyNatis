@@ -25,19 +25,26 @@ class Database
             self::$username = getenv('DB_USERNAME') ?: 'root';
             self::$password = getenv('DB_PASSWORD') ?: '';
 
-            self::$instance = new mysqli(
-                self::$host,
-                self::$username,
-                self::$password,
-                self::$db_name
-            );
+            // Inicializa mysqli para configurar SSL
+            $mysqli = mysqli_init();
 
-            if (self::$instance->connect_error) {
-                error_log("Error de conexión: " . self::$instance->connect_error);
+            // Ruta al certificado CA (ajusta la ruta según donde subas el archivo)
+            $caCertPath = __DIR__ . '/../../certs/DigiCertGlobalRootG2.crt.pem';
+
+            // Configura SSL - si no tienes cliente cert/key, pasan NULL
+            $mysqli->ssl_set(NULL, NULL, $caCertPath, NULL, NULL);
+
+            // Conexión segura
+            $mysqli->real_connect(self::$host, self::$username, self::$password, self::$db_name);
+
+            if ($mysqli->connect_error) {
+                error_log("Error de conexión: " . $mysqli->connect_error);
                 die("Lo sentimos, no podemos conectar con la base de datos en este momento.");
             }
 
-            self::$instance->set_charset("utf8mb4");
+            $mysqli->set_charset("utf8mb4");
+
+            self::$instance = $mysqli;
         }
 
         return self::$instance;
