@@ -1,4 +1,6 @@
 <?php
+// app/Config/Database.php
+
 namespace App\Config;
 
 use mysqli;
@@ -10,6 +12,7 @@ class Database
     private static $db_name;
     private static $username;
     private static $password;
+
     private static $instance = null;
 
     private function __construct() {}
@@ -19,23 +22,20 @@ class Database
         if (self::$instance === null) {
             self::$host     = getenv('DB_HOST')     ?: 'geroynatis.mysql.database.azure.com';
             self::$db_name  = getenv('DB_DATABASE') ?: 'geroynatis';
-            self::$username = getenv('DB_USERNAME') ?: 'Daniel';
-            self::$password = getenv('DB_PASSWORD') ?: '';
+            self::$username = getenv('DB_USERNAME') ?: 'usuario@geroynatis';
+            self::$password = getenv('DB_PASSWORD') ?: 'tu_contraseña';
 
-            $caCertPath = __DIR__ . '/../../certs/DigiCertGlobalRootG2.crt.pem';
+            $con = mysqli_init();
 
-            // Iniciar conexión
-            $mysqli = mysqli_init();
+            // Ruta absoluta al archivo .pem
+            $caCertPath = __DIR__ . '/certs/DigiCertGlobalRootCA.crt.pem';
 
-            if (!file_exists($caCertPath)) {
-                die("Certificado CA no encontrado en: $caCertPath");
-            }
+            // Configurar SSL
+            mysqli_ssl_set($con, null, null, $caCertPath, null, null);
 
-            // Establecer SSL con certificado
-            $mysqli->ssl_set(null, null, $caCertPath, null, null);
-
-            // Conexión con SSL
-            if (!$mysqli->real_connect(
+            // Conectar
+            if (!mysqli_real_connect(
+                $con,
                 self::$host,
                 self::$username,
                 self::$password,
@@ -44,14 +44,15 @@ class Database
                 null,
                 MYSQLI_CLIENT_SSL
             )) {
-                die('Error de conexión SSL: ' . mysqli_connect_error());
+                error_log("Error de conexión: " . mysqli_connect_error());
+                die("No se pudo establecer conexión segura con la base de datos.");
             }
 
-            $mysqli->set_charset("utf8mb4");
-            self::$instance = $mysqli;
+            $con->set_charset("utf8mb4");
+
+            self::$instance = $con;
         }
 
         return self::$instance;
     }
 }
-
