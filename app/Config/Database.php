@@ -29,7 +29,7 @@ class Database
             $mysqli = mysqli_init();
 
             // Ruta al certificado CA (ajusta la ruta según donde subas el archivo)
-            $caCertPath = __DIR__ . '/../../certs/DigiCertGlobalRootG2.crt.pem';
+            $caCertPath = __DIR__ . '/../../certs/BaltimoreCyberTrustRoot.crt.pem';
 
             // Configura SSL - si no tienes cliente cert/key, pasan NULL
             $mysqli->ssl_set(NULL, NULL, $caCertPath, NULL, NULL);
