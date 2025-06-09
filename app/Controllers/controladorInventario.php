@@ -1,6 +1,8 @@
 <?php
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 require_once __DIR__ . '/../Models/Producto.php';  // <-- ruta correcta
+
 
 use App\Models\Producto;
 
