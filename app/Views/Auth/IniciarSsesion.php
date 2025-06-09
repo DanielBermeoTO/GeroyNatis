@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 // Ruta corregida: Desde 'app/Controllers/' necesitas subir dos niveles para llegar a 'wwwroot/'
 // donde debería estar la carpeta 'vendor'.
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../../Config/Database.php'; // Esta ruta parece correcta si 'Config' está en 'app/'
 
 
