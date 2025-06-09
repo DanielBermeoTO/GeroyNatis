@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         showConfirmButton: true,
                         confirmButtonText: "Aceptar"
                     }).then(function () {
-                        window.location = "../Views/Admin/Inventario.php";
+                        window.location = "../Admin/Inventario.php";
                     });
                 </script>
                 <?php
