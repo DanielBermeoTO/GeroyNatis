@@ -27,7 +27,7 @@ if ($elegirAcciones == 'Crear Proveedor') {
         $_POST['productos']
     );
     // Redireccionar a la página de éxito o mostrar un mensaje.
-    header("Location: ../Controllers/controladorProveedores.php?success=1");
+    header("Location: ../../app/Views/Admin/Proveedores.php?success=1");
     exit();
 }elseif ($elegirAcciones == 'Actualizar Proveedor') {
     $idProveedor = $_POST['idProveedor'] ?? null;
@@ -38,7 +38,7 @@ if ($elegirAcciones == 'Crear Proveedor') {
         $producto = $_POST['productos'];
 
         $proveedor->actualizarProveedor($idProveedor,$nombreproveedor,$Telefono,$producto);
-        header("Location: ../Controllers/controladorProveedores.php?success=1");
+        header("Location: ../../app/Views/Admin/Proveedores.php?success=1");
         exit();
     }
 }

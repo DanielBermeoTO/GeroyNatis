@@ -51,7 +51,7 @@ if ($elegirAcciones == 'Crear Usuario') {
         $rol = $_POST['idrol'];
 
         $usuario->actualizarUsuario( $documento, $nombre, $apellido, $direccion, $localidad,$telefono,$correo,$estado, $rol );
-        header("Location: ../Controllers/controladorUsuario.php?success=1");
+        header("Location: ../../app/Views/Admin/Usuario.php?success=1");
         exit();
     }
 

@@ -31,7 +31,7 @@ if ($elegirAcciones == 'Crear Movimiento') {
     );
     
     // Redireccionar a la página controladora con un mensaje de éxito
-    header("Location: ../Controllers/controladorMovimiento.php?success=1");
+    header("Location: ../../app/Views/Admin/ProveedoresMovimientos.php?success=1");
     exit();
 }
 ?>

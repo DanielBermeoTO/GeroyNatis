@@ -61,7 +61,7 @@ if ($elegirAcciones == 'Crear Producto') {
             );
             
             // Redirigir a la página de inventario con éxito
-            header("Location: ../../app/Controllers/controladorInventario2.php?success=1");
+            header("Location: ../../app/Views/Admin/InventarioProductos.php?success=1");
             exit();
         } else {
             // Si no se subió una imagen, mostramos un error
@@ -81,7 +81,7 @@ if ($elegirAcciones == 'Crear Producto') {
 
         $producto->actualizarProducto($idProducto, $nombreProducto, $precio, $categoria, $estado);
 
-        header("Location: ../../app/Controllers/controladorInventario2.php?success=1");
+        header("Location: ../../app/Views/Admin/InventarioProductos.php?success=1");
         exit();
     }
 } elseif ($elegirAcciones == 'Borrar Producto') {
