@@ -5,11 +5,6 @@ require_once __DIR__ . '/../Config/Database.php';
 require_once __DIR__ . '/../../vendor/autoload.php';  // Carga las librerías de Composer
 
 use App\Config\Database; 
-use Dotenv\Dotenv;          // CORRECTO uso del namespace para Dotenv
-
-// Ajusta la ruta a la raíz de tu proyecto (normalmente 2 niveles arriba si estás en app/Models)
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
-$dotenv->load();
 
 class Venta
 {
