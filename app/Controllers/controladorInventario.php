@@ -1,12 +1,4 @@
 <?php
-// Iniciar la sesión
-session_start();
-
-// Verificar si la sesión está iniciada y si el usuario tiene el rol adecuado
-if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol'] != 1) {
-    header('Location: ../Views/Auth/IniciarSesion.php');
-    exit();
-}
 
 require_once __DIR__ . '/../Models/Producto.php';  // <-- ruta correcta
 

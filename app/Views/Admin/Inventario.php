@@ -1,7 +1,3 @@
-<?php
-// Incluir el controlador
-require_once __DIR__ . '/../../Controllers/controladorInventario.php';
-?>
 <!doctype html>
 <html lang="en">
 
@@ -9,7 +5,7 @@ require_once __DIR__ . '/../../Controllers/controladorInventario.php';
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../public/css/Geroyn.css">
+  <link rel="stylesheet" href="../../public/css/Geroyn.css">
       <link rel="stylesheet" href="../../public/css/pie.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -136,11 +132,13 @@ require_once __DIR__ . '/../../Controllers/controladorInventario.php';
 
 <body>
 <?php
-// Iniciar la sesión
-session_start();
+// Iniciar sesión si no está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Verificar si la sesión está iniciada y si el usuario tiene el rol adecuado
-if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol'] != 1) {
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'] != 1) {
     ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
