@@ -3,7 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 
-    require_once __DIR__ . '/../../Controllers/controladorInventario3.php';
+    require_once __DIR__ . '/../../Controllers/controladorInventario.php';
 } ?>
 <!doctype html>
 <html lang="en">
@@ -134,7 +134,7 @@ if (session_status() === PHP_SESSION_NONE) {
             border-radius: 5px;
         }
     </style>
-  <link rel="icon" href="../../public/images/Gero_y_Natis Logo.png" type="image/png">
+  <link rel="icon" href="../../../public/images/Gero_y_Natis Logo.png" type="image/png">
 </head>
 
 <body>
@@ -172,14 +172,14 @@ if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'
         <div class="container-fluid">
             <!-- Header Top -->
             <div class="header-top d-flex justify-content-end align-items-center">
-                <button onclick="window.location.href='../../app/Controllers/controladorUsuario.php'" class="btn-icon position-relative">
+                <button onclick="window.location.href='../../../app/Controllers/controladorUsuario.php'" class="btn-icon position-relative">
                     <i class="fa-solid fa-user"></i>
                 </button>
-                <button onclick="window.location.href='../../app/Views/Auth/Cerrar Sesion.php'" class="btn-icon">
+                <button onclick="window.location.href='../../../app/Views/Auth/Cerrar Sesion.php'" class="btn-icon">
                     <i class="fa-solid fa-door-open"></i>
                 </button>
                 <div class="ms-2">
-                    <img src="../../public/images/Gero_y_Natis Logo.png?height=40&width=40" alt="Avatar" class="avatar">
+                    <img src="../../../public/images/Gero_y_Natis Logo.png?height=40&width=40" alt="Avatar" class="avatar">
                 </div>
             </div>
             
@@ -190,19 +190,19 @@ if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'
             <div class="d-flex justify-content-center mb-4" style="font-family: Oswald, sans-serif; font-size: 1.1em;">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../app/Controllers/controladorInventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
+                        <a class="nav-link active" href="../../../app/Controllers/controladorInventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorInventario2.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
+                        <a class="nav-link" href="../../../app/Controllers/controladorInventario2.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorProveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
+                        <a class="nav-link" href="../../../app/Controllers/controladorProveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorMovimiento.php"> <i class="bi bi-book-half"></i> Movimientos</a>
+                        <a class="nav-link" href="../../../app/Controllers/controladorMovimiento.php"> <i class="bi bi-book-half"></i> Movimientos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
+                        <a class="nav-link" href="../../../app/Controllers/controladorVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
                     </li>
                 </ul>
             </div>
