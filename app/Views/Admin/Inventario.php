@@ -148,7 +148,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
             showConfirmButton: true,
             confirmButtonText: "Aceptar",
         }).then(function() {
-            window.location = "/app/Views/Auth/IniciarSesion.php";
+            window.location = "../Auth/IniciarSesion.php";
         });
     </script>
     <?php
