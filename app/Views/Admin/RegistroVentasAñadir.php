@@ -54,7 +54,7 @@ require_once __DIR__ . '/../../Controllers/controladorInventario3.php'; ?>
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <div class="d-flex align-items-center">
-          <button class="btn-back me-3" onclick="window.location.href='../../../app/Controllers/controladorInventario.php'" title="Ir atrás">
+          <button class="btn-back me-3" onclick="window.location.href='../Admin/RegistroVentas.php'" title="Ir atrás">
             <i class="fas fa-arrow-left"></i>
           </button>
 
@@ -72,32 +72,36 @@ require_once __DIR__ . '/../../Controllers/controladorInventario3.php'; ?>
         <div class="collapse navbar-collapse" id="navbarNavigation">
           <ul class="navbar-nav mx-auto">
 
-            <li class="nav-item">
-              <a class="nav-link" href="../../../app/Controllers/controladorInventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../../app/Controllers/controladorInventario2.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../../app/Controllers/controladorProveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../../app/Controllers/controladorMovimiento.php"> <i class="bi bi-book-half"></i> Movimientos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="../../../app/Controllers/controladorVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
-            </li>
-          </ul>
-
-          <div class="user-menu">
-            <a href="../../../app/Controllers/controladorUsuario.php" class="btn-icon-nav" title="Usuarios">
-              <i class="fa-solid fa-user"></i>
-            </a>
-            <a href="../../../app/Views/Auth/Cerrar Sesion.php" class="btn-icon-nav" title="Cerrar sesión">
-              <i class="fa-solid fa-door-open"></i>
-            </a>
-
-          </div>
+             <li class="nav-item">
+                        <a class="nav-link" href="../Admin/Inventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/InventarioProductos.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/Proveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/ProveedoresMovimientos.php"> <i class="bi bi-book-half"></i> Movimientos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Admin/RegistroVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
+                    </li>
+                    </ul>
+                    
+                    <!-- Menú de usuario a la derecha -->
+                    <div class="user-menu">
+                        <a href="../Admin/Calendario.html" class="btn-icon-nav" title="Calendario">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </a>
+                        <a href="../Admin/Usuario.php" class="btn-icon-nav" title="Usuarios">
+                             <i class="fa-solid fa-user"></i>
+                        </a>
+                        <a href="../../../app/Views/Auth/Cerrar Sesion.php" class="btn-icon-nav" title="Cerrar sesión">
+                            <i class="fa-solid fa-door-open"></i>
+                        </a>
+                        
+                    </div>
         </div>
       </div>
     </nav>

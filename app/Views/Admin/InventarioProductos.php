@@ -173,7 +173,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                     </button>
                     
                     <!-- Logo imagen -->
-                    <img src="../../public/images/Gero_y_Natis Logo.png" alt="Logo Gero y Natis" class="logo-img">
+                    <img src="../../../public/images/Gero_y_Natis Logo.png" alt="Logo Gero y Natis" class="logo-img">
                     
                     <!-- Nombre de la empresa -->
                     <a class="navbar-brand" href="#dashboard">
@@ -192,28 +192,28 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                     <ul class="navbar-nav mx-auto">
                         
                         <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorInventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
+                        <a class="nav-link" href="../Admin/Inventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link active" href="../../app/Controllers/controladorInventario2.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Admin/InventarioProductos.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorProveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/Proveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorMovimiento.php"> <i class="bi bi-book-half"></i> Movimientos</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/ProveedoresMovimientos.php"> <i class="bi bi-book-half"></i> Movimientos</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../../app/Controllers/controladorVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/RegistroVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
                     </li>
                     </ul>
                     
                     <!-- Menú de usuario a la derecha -->
                     <div class="user-menu">
-                        <a href="../../app/Controllers/controladorUsuario.php" class="btn-icon-nav" title="Usuarios">
+                        <a href="../Admin/Usuario.php" class="btn-icon-nav" title="Usuarios">
                              <i class="fa-solid fa-user"></i>
                         </a>
-                        <a href="../../app/Views/Auth/Cerrar Sesion.php" class="btn-icon-nav" title="Cerrar sesión">
+                        <a href="../../../app/Views/Auth/Cerrar Sesion.php" class="btn-icon-nav" title="Cerrar sesión">
                             <i class="fa-solid fa-door-open"></i>
                         </a>
                         
@@ -253,7 +253,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
         <hr>
  <div class="Ordenado" style="display: flex; justify-content:center; gap: 10px; ">
         <div class="añadirr" style="border: 1px solid black; padding: 0px; border-radius: 60px; display: flex; justify-content: space-between; align-items: center;">
-    <a href="../Views/Admin/InventarioAnadir.php" style="font-size: 20px; color: black; text-decoration: none; padding: 15px; ">
+    <a href="../Admin/InventarioAnadir.php" style="font-size: 20px; color: black; text-decoration: none; padding: 15px; ">
      Añadir <i class="fa-solid fa-plus"></i>
   </a>
   </div>

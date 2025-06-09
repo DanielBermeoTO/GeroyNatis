@@ -59,7 +59,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                 <!-- Botón atrás, Logo e imagen a la izquierda -->
                 <div class="d-flex align-items-center">
                     <!-- Botón para ir atrás -->
-                    <button class="btn-back me-3" onclick="window.location.href='../../../app/Controllers/controladorInventario.php'"  title="Ir atrás">
+                    <button class="btn-back me-3" onclick="window.location.href='../Admin/ProveedoresMovimientos.php'"  title="Ir atrás">
                         <i class="fas fa-arrow-left"></i>
                     </button>
                     
@@ -82,26 +82,26 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                     <!-- Links centrados -->
                     <ul class="navbar-nav mx-auto">
                         
-                        <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorInventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
+                            <li class="nav-item">
+                        <a class="nav-link" href="../Admin/Inventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorInventario2.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/InventarioProductos.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorProveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/Proveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link  active" href="../../../app/Controllers/controladorMovimiento.php"> <i class="bi bi-book-half"></i> Movimientos</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Admin/ProveedoresMovimientos.php"> <i class="bi bi-book-half"></i> Movimientos</a>
                     </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/RegistroVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
                     </li>
                     </ul>
                     
                     <!-- Menú de usuario a la derecha -->
-                    <div class="user-menu">
-                        <a href="../../../app/Controllers/controladorUsuario.php" class="btn-icon-nav" title="Usuarios">
+                   <div class="user-menu">
+                        <a href="../Admin/Usuario.php" class="btn-icon-nav" title="Usuarios">
                              <i class="fa-solid fa-user"></i>
                         </a>
                         <a href="../../../app/Views/Auth/Cerrar Sesion.php" class="btn-icon-nav" title="Cerrar sesión">
