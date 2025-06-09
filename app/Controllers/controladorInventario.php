@@ -1,27 +1,23 @@
 <?php
-namespace App\Controllers;
-
 require_once __DIR__ . '/../../vendor/autoload.php';
-require_once __DIR__ . '/../Models/Producto.php';
+
+require_once __DIR__ . '/../Models/Producto.php';  // <-- ruta correcta
+
 
 use App\Models\Producto;
 
-class ControladorInventario {
-    private $producto;
+$producto = new Producto();
 
-    public function __construct() {
-        $this->producto = new Producto();
-    }
-
-    public function index() {
-        if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
-            $busqueda = $_GET['busqueda'];
-            $product = $this->producto->buscarProductos($busqueda);
-        } else {
-            $product = $this->producto->obtenerProductos();
-        }
-
-        include __DIR__ . "/../Views/Admin/Inventario.php";
-    }
+if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
+    $busqueda = $_GET['busqueda'];
+    $product = $producto->buscarProductos($busqueda);
+} else {
+    $product = $producto->obtenerProductoz();
 }
+
+
+
+// Include the HTML part, not included directly in PHP script
+// Include the HTML part, not included directly in PHP script
+include __DIR__ . "/../Views/Admin/Inventario.php";
 ?>

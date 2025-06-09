@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         confirmButtonText: "Aceptar"
                     }).then(function () {
                         // Asegúrate de que esta ruta también sea correcta en Azure
-                        window.location = "../../Controllers/controladorInventario.php";
+                        window.location = "../Admin/Inventario.php";
                     });
                 </script>
                 <?php
