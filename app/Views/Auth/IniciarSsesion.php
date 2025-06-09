@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         showConfirmButton: true,
                         confirmButtonText: "Aceptar"
                     }).then(function () {
-                        window.location = "/app/Controllers/controladorInventario.php";
+                        window.location = "app/Controllers/controladorInventario.php";
                     });
                 </script>
                 <?php
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         showConfirmButton: true,
                         confirmButtonText: "Aceptar"
                     }).then(function () {
-                        window.location = "/app/Controllers/UsuarioInventario.php";
+                        window.location = "app/Controllers/UsuarioInventario.php";
                     });
                 </script>
                 <?php
