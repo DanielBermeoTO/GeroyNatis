@@ -67,7 +67,7 @@ if (isset($_POST['submitContact'])) {
         if ($stmt->execute()) {
             if ($stmt->affected_rows > 0) {
                 // Token actualizado exitosamente, continuar con el envío del correo
-                $url = "http://localhost/GeroyNatis/app/Views/Auth/Actualizarcontraseña.php?token=" . $token;
+                $url = "https://geroynatis.azurewebsites.net/app/Views/Auth/Actualizarcontraseña.php?token=" . $token;
                 
                 // Contenido del correo
                 $mail->isHTML(true);                                  // Establecer el formato del correo a HTML
