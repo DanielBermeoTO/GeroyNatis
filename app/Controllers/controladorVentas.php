@@ -72,9 +72,6 @@ if ($elegirAcciones == 'Crear Venta') {
     }
 }
 
-
-
-include __DIR__ . "/../Views/Admin/RegistroVentas.php";
 ?>
 
 

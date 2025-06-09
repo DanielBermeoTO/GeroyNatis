@@ -98,7 +98,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                 <!-- Botón atrás, Logo e imagen a la izquierda -->
                 <div class="d-flex align-items-center">
                     <!-- Botón para ir atrás -->
-                    <button class="btn-back me-3" onclick="window.location.href='../../../app/Controllers/controladorInventario2.php'"  title="Ir atrás">
+                    <button class="btn-back me-3" onclick="window.location.href='../Admin/InventarioProductos.php'"  title="Ir atrás">
                         <i class="fas fa-arrow-left"></i>
                     </button>
                     

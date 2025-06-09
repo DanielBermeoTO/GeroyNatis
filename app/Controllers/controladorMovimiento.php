@@ -15,5 +15,4 @@ if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
 // Include the HTML part, not included directly in PHP script
 // Include the HTML part, not included directly in PHP script
 
-include __DIR__ . "/../Views/Admin/ProveedoresMovimientos.php";
 ?>

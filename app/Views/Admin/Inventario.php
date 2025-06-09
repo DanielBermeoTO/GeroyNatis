@@ -172,10 +172,10 @@ if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'
         <div class="container-fluid">
             <!-- Header Top -->
             <div class="header-top d-flex justify-content-end align-items-center">
-                <button onclick="window.location.href='../../../app/Controllers/controladorUsuario.php'" class="btn-icon position-relative">
+                <button onclick="window.location.href='../Admin/Usuario.php'" class="btn-icon position-relative">
                     <i class="fa-solid fa-user"></i>
                 </button>
-                <button onclick="window.location.href='../../../app/Views/Auth/Cerrar Sesion.php'" class="btn-icon">
+                <button onclick="window.location.href='../Auth/Cerrar Sesion.php'" class="btn-icon">
                     <i class="fa-solid fa-door-open"></i>
                 </button>
                 <div class="ms-2">
@@ -190,19 +190,19 @@ if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'
             <div class="d-flex justify-content-center mb-4" style="font-family: Oswald, sans-serif; font-size: 1.1em;">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link active" href="../Admin/InventarioProductos.php"><i class="far fa-copy me-2"></i>Inicio</a>
+                        <a class="nav-link active" href="../Admin/Inventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorInventario2.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
+                        <a class="nav-link" href="../Admin/InventarioProductos.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorProveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
+                        <a class="nav-link" href="../Admin/Proveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorMovimiento.php"> <i class="bi bi-book-half"></i> Movimientos</a>
+                        <a class="nav-link" href="../Admin/ProveedoresMovimientos.php"> <i class="bi bi-book-half"></i> Movimientos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../app/Controllers/controladorVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
+                        <a class="nav-link" href="../Admin/RegistroVentas.php"><i class="fa-regular fa-credit-card"></i> Ventas</a>
                     </li>
                 </ul>
             </div>

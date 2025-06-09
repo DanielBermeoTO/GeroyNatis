@@ -13,8 +13,8 @@ require_once __DIR__ . '/../../Controllers/controladorInventario2.php';
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../public/css/Geroyn.css">
-      <link rel="stylesheet" href="../../public/css/pie.css">
+  <link rel="stylesheet" href="../../../public/css/Geroyn.css">
+      <link rel="stylesheet" href="../../../public/css/pie.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,7 +22,7 @@ require_once __DIR__ . '/../../Controllers/controladorInventario2.php';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <title>Gero y Natis</title>
-  <link rel="icon" href="../../public/images/Gero_y_Natis Logo.png" type="image/png">
+  <link rel="icon" href="../../../public/images/Gero_y_Natis Logo.png" type="image/png">
 <style>
  
 
@@ -152,7 +152,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
             showConfirmButton: true,
             confirmButtonText: "Aceptar",
         }).then(function() {
-            window.location = "../../public/index.html"; // Redirigir a la página de inicio de sesión
+            window.location = "../../../public/index.html"; // Redirigir a la página de inicio de sesión
         });
     </script>
     <?php
@@ -168,7 +168,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                 <!-- Botón atrás, Logo e imagen a la izquierda -->
                 <div class="d-flex align-items-center">
                     <!-- Botón para ir atrás -->
-                    <button class="btn-back me-3" onclick="window.location.href='../../app/Controllers/controladorInventario.php'"  title="Ir atrás">
+                    <button class="btn-back me-3" onclick="window.location.href='../Admin/Inventario.php'"  title="Ir atrás">
                         <i class="fas fa-arrow-left"></i>
                     </button>
                     

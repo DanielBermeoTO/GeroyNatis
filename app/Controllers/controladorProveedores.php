@@ -38,5 +38,4 @@ if ($elegirAcciones == 'Crear Proveedor') {
         exit();
     }
 }
-include __DIR__ . "/../Views/Admin/Proveedores.php";
 

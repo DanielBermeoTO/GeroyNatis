@@ -58,4 +58,3 @@ if ($elegirAcciones == 'Crear Usuario') {
     
 }
 
-include "../../app/Views/Admin/Usuario.php";
