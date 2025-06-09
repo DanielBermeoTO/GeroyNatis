@@ -131,31 +131,7 @@
 </head>
 
 <body>
-<?php
-// Iniciar sesión si no está iniciada
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
-// Verificar si el usuario está logueado
-if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'] != 1) {
-    ?>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Acceso denegado',
-            text: 'Debe iniciar sesión para acceder a esta página',
-            showConfirmButton: true,
-            confirmButtonText: "Aceptar",
-        }).then(function() {
-            window.location = "../Auth/IniciarSesion.php";
-        });
-    </script>
-    <?php
-    exit();
-}
-?>
   <div class="header-wrapper">
         <div class="header-background"></div>
         
