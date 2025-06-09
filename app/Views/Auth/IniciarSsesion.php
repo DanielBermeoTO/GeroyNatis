@@ -47,9 +47,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         if (password_verify($Password, $contrasenna)) {
+            // Limpiar cualquier sesión existente
+            session_unset();
+            session_destroy();
+            session_start();
+            
+            // Establecer las variables de sesión
             $_SESSION['sesion'] = $documento;
             $_SESSION['rol'] = $idrol;
-
+            
+            // Asegurarse de que la sesión se guarde
+            session_write_close();
+            
             if ($idrol == 1) {
                 // Administrador
                 ?>

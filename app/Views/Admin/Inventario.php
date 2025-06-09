@@ -132,12 +132,13 @@
 
 <body>
 <?php
-// Iniciar la sesión
-session_start();
+// Iniciar sesión si no está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Verificar si la sesión está iniciada y si el usuario tiene el rol adecuado (rol 2 para vendedor)
-if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol'] != 1) {
-    // Si no está logueado o no tiene el rol de vendedor, mostrar alerta y redirigir
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'] != 1) {
     ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -152,7 +153,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
         });
     </script>
     <?php
-    exit(); // Asegúrate de salir después de mostrar el mensaje
+    exit();
 }
 ?>
   <div class="header-wrapper">
