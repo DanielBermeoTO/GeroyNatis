@@ -43,7 +43,7 @@ if (isset($_GET['error']) && $_GET['error'] === 'usuario_existente') {
         
           <div class="row align-items-center justify-content-between">
     <div class="col-auto">
-        <a class="nav-link" style="color: black; font-size: 1.5em" href="../../../app/Controllers/controladorUsuario.php">
+        <a class="nav-link" style="color: black; font-size: 1.5em" href="../Admin/Usuario.php">
             <i class="bi bi-box-arrow-left"></i>
         </a>
     </div>

@@ -181,7 +181,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                         <a class="nav-link" href="../Admin/Inventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../Admin/InventarioProductos.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
+                        <a class="nav-link" href="../Admin/InventarioProductos.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../Admin/Proveedores.php"><i class="bi bi-file-person"></i> Proveedores</a>
