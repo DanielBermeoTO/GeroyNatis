@@ -1,8 +1,6 @@
-
 <?php
 // Iniciar la sesión
 session_start();
-
 require_once __DIR__ . '/../../Controllers/controladorInventario3.php'; ?>
 <!doctype html>
 <html lang="en">
