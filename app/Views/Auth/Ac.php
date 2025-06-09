@@ -1,9 +1,13 @@
 <?php
-// Conexión a la base de datos
-$mysqli = new mysqli("localhost", "root", "", "geroynatis");
-if ($mysqli->connect_errno) {
-    die("Error al conectar: " . $mysqli->connect_error);
-}
+require_once __DIR__ . '/../../Config/Database.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';  
+
+
+
+use App\Config\Database;
+
+
+$mysqli = Database::getConnection();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $documento = $_POST['documento'];
