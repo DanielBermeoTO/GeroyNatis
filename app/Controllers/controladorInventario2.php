@@ -21,6 +21,5 @@ $categorias = $producto->obtenerCategorias();
 
 
 // Include the HTML part, not included directly in PHP script
-include __DIR__ . "/../Views/Admin/InventarioProductos.php";
 
 ?>

@@ -190,7 +190,7 @@ if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'
             <div class="d-flex justify-content-center mb-4" style="font-family: Oswald, sans-serif; font-size: 1.1em;">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../../app/Controllers/controladorInventario.php"><i class="far fa-copy me-2"></i>Inicio</a>
+                        <a class="nav-link active" href="../Admin/InventarioProductos.php"><i class="far fa-copy me-2"></i>Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../../app/Controllers/controladorInventario2.php"><i class="fa-regular fa-clipboard"></i> Inventario</a>
