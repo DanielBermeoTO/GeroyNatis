@@ -1,3 +1,7 @@
+<?php
+// Incluir el controlador
+require_once __DIR__ . '/../../Controllers/controladorInventario.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -5,7 +9,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../public/css/Geroyn.css">
+  <link rel="stylesheet" href="../public/css/Geroyn.css">
       <link rel="stylesheet" href="../../public/css/pie.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -131,7 +135,29 @@
 </head>
 
 <body>
+<?php
+// Iniciar la sesión
+session_start();
 
+// Verificar si la sesión está iniciada y si el usuario tiene el rol adecuado
+if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol'] != 1) {
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Acceso denegado',
+            text: 'Debe iniciar sesión para acceder a esta página',
+            showConfirmButton: true,
+            confirmButtonText: "Aceptar",
+        }).then(function() {
+            window.location = "../Auth/IniciarSesion.php";
+        });
+    </script>
+    <?php
+    exit();
+}
+?>
   <div class="header-wrapper">
         <div class="header-background"></div>
         

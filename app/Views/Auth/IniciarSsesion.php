@@ -7,17 +7,12 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/../../Config/Database.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';  
 
+
+
 use App\Config\Database;
 
-// Iniciar sesión si no está iniciada
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
-// Limpiar cualquier sesión existente
-session_unset();
-session_destroy();
-session_start();
+session_start(); // Iniciar sesión
 
 $mysqli = Database::getConnection();
 
@@ -47,18 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         if (password_verify($Password, $contrasenna)) {
-            // Limpiar cualquier sesión existente
-            session_unset();
-            session_destroy();
-            session_start();
-            
-            // Establecer las variables de sesión
             $_SESSION['sesion'] = $documento;
             $_SESSION['rol'] = $idrol;
-            
-            // Asegurarse de que la sesión se guarde
-            session_write_close();
-            
+
             if ($idrol == 1) {
                 // Administrador
                 ?>
@@ -71,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         showConfirmButton: true,
                         confirmButtonText: "Aceptar"
                     }).then(function () {
-                        window.location = "app/Controllers/controladorInventario.php";
+                        window.location = "../Admin/Inventario.php";
                     });
                 </script>
                 <?php
@@ -87,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         showConfirmButton: true,
                         confirmButtonText: "Aceptar"
                     }).then(function () {
-                        window.location = "app/Controllers/UsuarioInventario.php";
+                        window.location = "../Web/InventaroUsuario.php";
                     });
                 </script>
                 <?php

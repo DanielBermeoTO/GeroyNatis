@@ -1,17 +1,14 @@
 <?php
-// Iniciar sesión si no está iniciada
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// Iniciar la sesión
+session_start();
 
-// Verificar si el usuario está logueado
-if (!isset($_SESSION['sesion']) || empty($_SESSION['sesion']) || $_SESSION['rol'] != 1) {
+// Verificar si la sesión está iniciada y si el usuario tiene el rol adecuado
+if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol'] != 1) {
     header('Location: ../Views/Auth/IniciarSesion.php');
-    exit;
+    exit();
 }
 
-// Cargar el modelo
-require_once __DIR__ . '/../Models/Producto.php';
+require_once __DIR__ . '/../Models/Producto.php';  // <-- ruta correcta
 
 use App\Models\Producto;
 
@@ -24,6 +21,9 @@ if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
     $product = $producto->obtenerProductoz();
 }
 
-// Incluir la vista
+
+
+// Include the HTML part, not included directly in PHP script
+// Include the HTML part, not included directly in PHP script
 include __DIR__ . "/../Views/Admin/Inventario.php";
 ?>
