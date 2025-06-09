@@ -35,7 +35,31 @@ class Venta
 
     public function obtenerVentas()
     {
-        $sqlv = "SELECT FV.idFactura,df.cliente, FV.fechaventa, FV.subtotal, FV.total,FV.usuario,(SELECT nombre FROM usuario WHERE FV.usuario = usuario.documento) AS nombre,(SELECT apellido FROM usuario WHERE FV.usuario = usuario.documento) AS apellido, (SELECT estados.tiposestados FROM estados WHERE FV.id_estadof = estados.idestado) AS estadi, GROUP_CONCAT(CONCAT(p.idProducto, ': ', p.nombreproducto, ' : ', df.cantidad, ': ', df.valorunitario, ': ', p.iva, ': ') SEPARATOR ', ') AS productos, SUM(df.cantidad) AS total_cantidad FROM detalle_factura df INNER JOIN factura AS FV ON df.FacturaidFactura = FV.idFactura INNER JOIN producto p ON df.ProductoidProducto = p.idProducto INNER JOIN estados AS E ON FV.id_estadof = E.idestado GROUP BY FV.idFactura, FV.fechaventa, FV.subtotal, FV.total, FV.id_estadof, E.tiposestados ORDER BY FV.idFactura DESC;";
+        $sqlv = "SELECT 
+    FV.idFactura,
+    MAX(df.cliente) AS cliente,
+    FV.fechaventa,
+    FV.subtotal,
+    FV.total,
+    FV.usuario,
+    (SELECT nombre FROM usuario WHERE FV.usuario = usuario.documento) AS nombre,
+    (SELECT apellido FROM usuario WHERE FV.usuario = usuario.documento) AS apellido,
+    (SELECT estados.tiposestados FROM estados WHERE FV.id_estadof = estados.idestado) AS estadi,
+    GROUP_CONCAT(CONCAT(p.idProducto, ': ', p.nombreproducto, ' : ', df.cantidad, ': ', df.valorunitario, ': ', p.iva, ': ') SEPARATOR ', ') AS productos,
+    SUM(df.cantidad) AS total_cantidad
+FROM 
+    detalle_factura df
+INNER JOIN 
+    factura AS FV ON df.FacturaidFactura = FV.idFactura
+INNER JOIN 
+    producto p ON df.ProductoidProducto = p.idProducto
+INNER JOIN 
+    estados AS E ON FV.id_estadof = E.idestado
+GROUP BY 
+    FV.idFactura, FV.fechaventa, FV.subtotal, FV.total, FV.usuario, FV.id_estadof
+ORDER BY 
+    FV.idFactura DESC;
+";
         $resultado = $this->Conexion->query($sqlv);
         $venta = [];
 
