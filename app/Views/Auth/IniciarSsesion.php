@@ -4,13 +4,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . '/../../Config/Database.php';
-require_once __DIR__ . '/../../../vendor/autoload.php';  
-
+// Ruta corregida: Desde 'app/Controllers/' necesitas subir dos niveles para llegar a 'wwwroot/'
+// donde debería estar la carpeta 'vendor'.
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../Config/Database.php'; // Esta ruta parece correcta si 'Config' está en 'app/'
 
 
 use App\Config\Database;
-
 
 session_start(); // Iniciar sesión
 
@@ -23,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<br>";
 
     // Consulta para obtener la contraseña y rol del usuario activo
-    $query = "SELECT s.contrasena, u.idrol 
-              FROM sesion s 
-              JOIN usuario u ON u.documento = s.documento 
+    $query = "SELECT s.contrasena, u.idrol
+              FROM sesion s
+              JOIN usuario u ON u.documento = s.documento
               WHERE s.documento = ? AND u.id_estado = 3";
 
     $stmt = $mysqli->prepare($query);
@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         showConfirmButton: true,
                         confirmButtonText: "Aceptar"
                     }).then(function () {
+                        // Asegúrate de que esta ruta también sea correcta en Azure
                         window.location = "../Admin/Inventario.php";
                     });
                 </script>
@@ -73,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         showConfirmButton: true,
                         confirmButtonText: "Aceptar"
                     }).then(function () {
+                        // Asegúrate de que esta ruta también sea correcta en Azure
                         window.location = "../Web/InventaroUsuario.php";
                     });
                 </script>
