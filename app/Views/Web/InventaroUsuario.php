@@ -1,3 +1,8 @@
+<?php 
+// Iniciar la sesión
+session_start();
+    require_once __DIR__ . '/../../Controllers/UsuarioInventario.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -132,8 +137,7 @@
 
 <body>
 <?php
-// Iniciar la sesión
-session_start();
+
 
 // Verificar si la sesión está iniciada y si el usuario tiene el rol adecuado (rol 2 para vendedor)
 if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol'] != 2) {

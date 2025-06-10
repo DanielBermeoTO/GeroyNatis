@@ -63,7 +63,6 @@ if ($elegirAcciones == 'Crear Venta') {
 
 
 
-include __DIR__ . "/../Views/Web/VentasUsuario.php";
 ?>
 
 
