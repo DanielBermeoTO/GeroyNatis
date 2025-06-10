@@ -276,7 +276,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                                         </h5>
                                     </div>
                                     
-                                    <form action="../Controllers/controladorProveedores.php" method="POST" enctype="multipart/form-data">
+                                    <form action="../../Controllers/controladorProveedores.php" method="POST" enctype="multipart/form-data">
                                                                             <input type="hidden" name="idProveedor" value="<?php echo $row['idProveedor']; ?>">
     
                                     <div class="modal-body-custom">
