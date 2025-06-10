@@ -286,7 +286,7 @@ public function añadirProducto($foto, $nombreProducto, $precio, $precioproveedo
         }
 
         $this->Conexion->commit();
-       header("Location: ../../app/Controllers/controladorInventario2.php?success=1");
+       header("Location: ../../app/Views/Admin/InventarioProductos.php?success=1");
 
         exit();
 
@@ -320,7 +320,7 @@ $stmt->bind_param("siiii", $nombreProducto, $precio, $categoria, $estado, $idPro
         // Do not close connection here if it's reused across the application
         // $this->Conexion->close(); 
         if ($resultado) {
-            header("Location: ../../app/Controllers/controladorInventario2.php?success=1");
+            header("Location: ../../app/Views/Admin/InventarioProductos.php?success=1");
             exit();
         }
 
