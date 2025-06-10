@@ -393,7 +393,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                                         </button>
                                     </div>
                                     
-                                    <form action="../../app/Controllers/controladorInventario3.php" method="POST" enctype="multipart/form-data">
+                                    <form action="../../Controllers/controladorInventario3.php" method="POST" enctype="multipart/form-data">
                                         <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
                                         <div class="modal-body-custom">
                                             <div class="form-group-custom">
