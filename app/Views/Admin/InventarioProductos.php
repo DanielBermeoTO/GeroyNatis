@@ -291,7 +291,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                                     <button class="btn" title="Actualizar Producto" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $row['idProducto']; ?>" type="button">
                                         <i class="bi bi-pen"></i>
                                     </button>
-                                    <form action="../../app/Controllers/controladorInventario3.php" method="post">
+                                    <form action="../../Controllers/controladorInventario3.php" method="post">
                                         <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
                                         <button class="btn" title="Inhabilitar Producto" name="Acciones" value="Borrar Producto" type="submit">
                                             <i class="bi bi-slash-circle"></i>
@@ -362,7 +362,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                                             </div>
                                             
                                             <div class="d-grid gap-2 mt-4">
-                                                <form action="../../app/Controllers/controladorInventario3.php" method="post" style="display:inline;">
+                                                <form action="../../../app/Controllers/controladorInventario3.php" method="post" style="display:inline;">
                                                     <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
                                                     <button name="Acciones" value="Borrar Producto" style="border: 0.5px solid red; background: white; color: red; padding: 10px; border-radius: 5px" type="submit">
                                                         <i class="bi bi-ban"></i> Inhabilitar
