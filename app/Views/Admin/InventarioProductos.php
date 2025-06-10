@@ -291,7 +291,7 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
                                     <button class="btn" title="Actualizar Producto" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $row['idProducto']; ?>" type="button">
                                         <i class="bi bi-pen"></i>
                                     </button>
-                                    <form action="../../Controllers/controladorInventario3.php" method="post">
+                                    <form action="../../../Controllers/controladorInventario3.php" method="post">
                                         <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
                                         <button class="btn" title="Inhabilitar Producto" name="Acciones" value="Borrar Producto" type="submit">
                                             <i class="bi bi-slash-circle"></i>
