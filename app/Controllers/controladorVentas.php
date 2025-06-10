@@ -21,8 +21,6 @@ if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
 $elegirAcciones = isset($_POST['Acciones']) ? $_POST['Acciones'] : "Cargar";
 
 if ($elegirAcciones == 'Crear Venta') {
-    // Imprimir datos para depuración
-    print_r($_POST);
     
     // Verificar si se han enviado productos
     if (isset($_POST['idProducto']) && is_array($_POST['idProducto']) && count($_POST['idProducto']) > 0) {
