@@ -257,7 +257,7 @@ if (count($usuarios) > 0) {
                 <div class="buttons">
                 <button  class="btn"  title="Actualizar Usuario" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $row['documento']; ?>" type="button">
                 <i class="bi bi-pen"></i></button>
-                    <form action="../Controllers/controladorUsuario.php" method="post">
+                    <form action="../../Controllers/controladorUsuario.php" method="post">
                         <input type="hidden" name="documento" value="<?php echo $row['documento']; ?>">
                         <button class="btn" title="Inhabilitar Usuario" name="Acciones" value="Borrar Usuario" type="submit">
                             <i class="bi bi-slash-circle"></i>
@@ -300,7 +300,7 @@ if (count($usuarios) > 0) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="../../app/Controllers/controladorUsuario.php" method="post" enctype="multipart/form-data">
+        <form action="../../Controllers/controladorUsuario.php" method="post" enctype="multipart/form-data">
           <div class="mb-3">
             <label class="form-label">Número de documento</label>
             <input class="form-control" name="documento" type="number" value="<?php echo $row['documento']; ?>" readonly>
