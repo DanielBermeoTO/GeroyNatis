@@ -404,7 +404,7 @@ if (count($usuarios) > 0) {
                     <p><?php echo $rowi['correo']; ?></p> <!-- Reemplaza campo3 con el nombre real del campo -->
                 </div>
                 <div class="buttons">
-                <form action="../Controllers/controladorUsuario.php" method="post">
+                <form action="../../Controllers/controladorUsuario.php" method="post">
                         <input type="hidden" name="documento" value="<?php echo $rowi['documento']; ?>">
                         <button style="color: green;" class="btn" title="Activar Usuario" name="Acciones" value="Activar Usuario" type="submit">
                         <i class="bi bi-check-circle"></i>                        </button>
