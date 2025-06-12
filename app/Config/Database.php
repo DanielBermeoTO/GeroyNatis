@@ -12,25 +12,35 @@ class Database
     private static $db_name;
     private static $username;
     private static $password;
-
     private static $instance = null;
 
     private function __construct() {}
 
+    public static function loadEnv()
+    {
+        $envFile = __DIR__ . '/../../.env';
+        if (!file_exists($envFile)) {
+            throw new Exception('Archivo .env no encontrado');
+        }
+        
+        $envVars = parse_ini_file($envFile);
+        foreach ($envVars as $key => $value) {
+            $_ENV[$key] = $value;
+        }
+    }
+
     public static function getConnection()
     {
         if (self::$instance === null) {
-            // Cargar variables de entorno desde un archivo .env
-            $envFile = __DIR__ . '/../../.env';
-            if (file_exists($envFile)) {
-                $envVars = parse_ini_file($envFile);
-                self::$host = $envVars['DB_HOST'] ?? 'localhost';
-                self::$db_name = $envVars['DB_DATABASE'] ?? '';
-                self::$username = $envVars['DB_USERNAME'] ?? '';
-                self::$password = $envVars['DB_PASSWORD'] ?? '';
-            } else {
-                throw new Exception('Archivo .env no encontrado');
+            // Cargar variables de entorno si no están cargadas
+            if (!isset($_ENV['DB_HOST'])) {
+                self::loadEnv();
             }
+
+            self::$host = $_ENV['DB_HOST'] ?? 'localhost';
+            self::$db_name = $_ENV['DB_DATABASE'] ?? '';
+            self::$username = $_ENV['DB_USERNAME'] ?? '';
+            self::$password = $_ENV['DB_PASSWORD'] ?? '';
 
             $con = mysqli_init();
 
