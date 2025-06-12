@@ -1,7 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../../Config/Database.php';
-require __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../Config/mail_config.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -12,12 +13,22 @@ use App\Config\Database;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Cargar variables de entorno
+$envFile = __DIR__ . '/../../../.env';
+if (!file_exists($envFile)) {
+    die('Archivo .env no encontrado');
+}
+$envVars = parse_ini_file($envFile);
 
 $mysqli = Database::getConnection();
+$mailConfig = require __DIR__ . '/../../Config/mail_config.php';
 
 $correo = $_POST['correo'];
-$sql = "SELECT * FROM `usuario` WHERE correo = '$correo' AND id_estado = 3;";
-$resultado = $mysqli->query($sql);
+$sql = "SELECT * FROM `usuario` WHERE correo = ? AND id_estado = 3;";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $correo);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
 if (isset($_POST['submitContact'])) {
     // Crear una instancia de PHPMailer; pasando `true` habilita las excepciones
@@ -25,14 +36,19 @@ if (isset($_POST['submitContact'])) {
 
     try {
         // Configuración del servidor
-        $mail->isSMTP();                                            // Enviar usando SMTP
-        $mail->SMTPAuth   = true;                                   // Habilitar autenticación SMTP
-        $mail->Host       = 'smtp.gmail.com';                         // Establecer el servidor SMTP
-        $mail->Username   = 'geroynatis2@gmail.com';                  // Nombre de usuario SMTP
-        $mail->Password   = 'blrcnoxntrywanhv';                       // Contraseña SMTP
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;           // Habilitar cifrado TLS
-        $mail->Port       = 587;                                     // Puerto TCP para conectarse (587 para STARTTLS)
-
+        $mail->isSMTP();
+        $mail->SMTPAuth   = true;
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->Username   = $_ENV['MAIL_USERNAME'] ?? '';
+        $mail->Password   = $_ENV['MAIL_PASSWORD'] ?? '';
+        
+        if (empty($mail->Username) || empty($mail->Password)) {
+            throw new Exception('Las credenciales de correo no están configuradas en el archivo .env');
+        }
+        
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+        
         // Destinatarios
         $mail->setFrom('geroynatis2@gmail.com', 'Gero y Natis');
         

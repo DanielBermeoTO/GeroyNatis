@@ -17,17 +17,20 @@ try {
     
     // Si se proporciona una fecha específica
     if (isset($_GET['fecha'])) {
-        $date = $conexion->real_escape_string($_GET['fecha']);
+        $date = $_GET['fecha'];
         
         // Obtener facturas del día
         $query_invoices = "
             SELECT idFactura as id, total 
             FROM factura
-            WHERE DATE(fechaventa) = '$date'
+            WHERE DATE(fechaventa) = ?
             ORDER BY idFactura DESC
         ";
         
-        $result_invoices = $conexion->query($query_invoices);
+        $stmt = $conexion->prepare($query_invoices);
+        $stmt->bind_param("s", $date);
+        $stmt->execute();
+        $result_invoices = $stmt->get_result();
         
         if (!$result_invoices) {
             throw new Exception('Error en consulta SQL: ' . $conexion->error);

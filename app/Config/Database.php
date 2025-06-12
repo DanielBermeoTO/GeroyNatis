@@ -20,10 +20,17 @@ class Database
     public static function getConnection()
     {
         if (self::$instance === null) {
-            self::$host     = getenv('DB_HOST')     ?: 'geroynatis.mysql.database.azure.com';
-            self::$db_name  = getenv('DB_DATABASE') ?: 'geroynatis';
-            self::$username = getenv('DB_USERNAME') ?: 'usuario@geroynatis';
-            self::$password = getenv('DB_PASSWORD') ?: 'tu_contraseña';
+            // Cargar variables de entorno desde un archivo .env
+            $envFile = __DIR__ . '/../../.env';
+            if (file_exists($envFile)) {
+                $envVars = parse_ini_file($envFile);
+                self::$host = $envVars['DB_HOST'] ?? 'localhost';
+                self::$db_name = $envVars['DB_DATABASE'] ?? '';
+                self::$username = $envVars['DB_USERNAME'] ?? '';
+                self::$password = $envVars['DB_PASSWORD'] ?? '';
+            } else {
+                throw new Exception('Archivo .env no encontrado');
+            }
 
             $con = mysqli_init();
 

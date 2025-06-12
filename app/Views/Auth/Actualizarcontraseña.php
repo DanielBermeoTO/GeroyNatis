@@ -17,9 +17,12 @@ if (isset($_GET['token'])) {
         SELECT usuario.* 
         FROM usuario
         INNER JOIN sesion ON usuario.documento = sesion.documento
-        WHERE sesion.token = '$token' AND sesion.token_expiry > NOW()
+        WHERE sesion.token = ? AND sesion.token_expiry > NOW()
     ";
-    $resultado = $mysqli->query($sql);
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
 
     if ($resultado && $resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
