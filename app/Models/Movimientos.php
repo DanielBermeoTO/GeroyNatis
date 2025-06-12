@@ -165,7 +165,7 @@ public function añadirmovimiento($entradaproducto, $fechaentrada, $ProductoidPr
         $this->Conexion->commit();
         return $idproceso;
 
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         // En caso de error, hacer rollback
         $this->Conexion->rollback();
         throw $e;

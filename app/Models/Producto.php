@@ -290,7 +290,7 @@ public function añadirProducto($foto, $nombreProducto, $precio, $precioproveedo
 
         exit();
 
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         $this->Conexion->rollback();
         throw $e;
     }
