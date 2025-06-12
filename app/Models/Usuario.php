@@ -94,7 +94,7 @@ class Usuario
                     if ($stmtSesion->execute()) {
                         // Todo ha ido bien, confirmamos la transacción
                         $this->Conexion->commit();
-                        header("Location: ../Controllers/controladorUsuario.php");
+                        header("Location: ../../app/Views/Admin/Usuario.php");
                         exit;
                     } else {
                         // Error al añadir la sesión, lanzamos excepción
@@ -113,7 +113,7 @@ class Usuario
         } else {
             throw new Exception("Error al preparar la consulta para la tabla de usuario: " . $this->Conexion->error);
         }
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         // Algo ha fallado, hacemos rollback
         $this->Conexion->rollback();
         echo $e->getMessage();
@@ -132,7 +132,7 @@ public function borrarUsuario( $documento, $tipoDocumento, $nombre, $apellido, $
     $stmt->close();
     $this->Conexion->close();
     if ($resultado) {
-        header("Location: ../Controllers/controladorUsuario.php?success=1");
+        header("Location: ../../app/Views/Admin/Usuario.php?success=1");
         exit();
     }
 
@@ -160,7 +160,7 @@ public function activaUsuario( $documento, $tipoDocumento, $nombre, $apellido, $
     $stmt->close();
     $this->Conexion->close();
     if ($resulta) {
-        header("Location: ../Controllers/controladorUsuario.php?success=1");
+        header("Location: ../../app/Views/Admin/Usuario.php?success=1");
         exit();
     }
 

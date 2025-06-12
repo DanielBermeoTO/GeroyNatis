@@ -1,3 +1,8 @@
+<?php 
+// Iniciar la sesión
+session_start();
+    require_once __DIR__ . '/../../Controllers/UsuarioInventario.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -5,8 +10,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../public/css/Geroyn.css">
-      <link rel="stylesheet" href="../../public/css/pie.css">
+  <link rel="stylesheet" href="../../../public/css/Geroyn.css">
+      <link rel="stylesheet" href="../../../public/css/pie.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -132,8 +137,7 @@
 
 <body>
 <?php
-// Iniciar la sesión
-session_start();
+
 
 // Verificar si la sesión está iniciada y si el usuario tiene el rol adecuado (rol 2 para vendedor)
 if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol'] != 2) {

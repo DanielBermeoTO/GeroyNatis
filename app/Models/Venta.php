@@ -111,7 +111,7 @@ public function agregarVenta($fechaventa, $id_estadof, $productos, $documento) {
         $stmtVerificar->close();
 
         if ($cantidad > $cantidadDisponible) {
-            header("Location: ../../app/Controllers/controladorVentas.php?error=pocosproductos");
+            header("Location: ../../app/Views/Admin/RegistroVentas.php?error=pocosproductos");
             exit;
         }
     }

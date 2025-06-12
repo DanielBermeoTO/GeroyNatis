@@ -14,15 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nueva_contrasena = $_POST['nueva_contrasena'];
     $hash = password_hash($nueva_contrasena, PASSWORD_BCRYPT);
 
-    // Actualizar la contraseña en la tabla `sesion` usando AES_ENCRYPT
+    // Actualizar la contraseña en la tabla `sesion` usando prepared statement
     $sql = "UPDATE sesion 
             SET contrasena = ?, 
                 token = NULL, 
                 token_expiry = NULL 
-            WHERE documento = '$documento'";
+            WHERE documento = ?";
 
-              $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("s", $hash);
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("ss", $hash, $documento);
 
     if ($stmt->execute()) {
         header("Location: ./IniciarSesion.php?message=okay");
