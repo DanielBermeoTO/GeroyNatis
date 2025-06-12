@@ -6,6 +6,7 @@ require_once __DIR__ . '/../Config/Database.php';
 require_once __DIR__ . '/../../vendor/autoload.php';  
 
 use App\Config\Database;
+use Exception;
 
 
 class Movimientos
@@ -85,12 +86,12 @@ GROUP BY pr.idProceso;
     $stmt->close();
     return $productos;
 }
-public function añadirmovimiento($entradaproducto, $fechaentrada, $ProductoidProducto, $TallaidTalla, $ProveedoridProveedor, $precioproveedor, $anadido, $total, $tallas, $cantidades, $colores)
+public function añadirmovimiento($idproceso, $fecha_entrada, $ProductoidProducto, $idTalla, $ProveedoridProveedor, $precioproveedor, $id_estado, $total, $tallas, $cantidades, $colores)
 {
-    // Iniciar transacción
-    $this->Conexion->begin_transaction();
-
     try {
+        // Iniciar transacción
+        $this->Conexion->begin_transaction();
+
         // Sumar todas las cantidades ingresadas desde el formulario
         $entradaproducto = array_sum($cantidades);
 
@@ -105,7 +106,7 @@ public function añadirmovimiento($entradaproducto, $fechaentrada, $ProductoidPr
         $sql = "INSERT INTO `proceso`(`entradaProducto`, `fecha_entrada`, `productoidProducto`, `proveedoridproveedor`, `precioproveedor`, `anadido`, `total`) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->Conexion->prepare($sql);
-        $stmt->bind_param("isiiiii", $entradaproducto, $fechaentrada, $ProductoidProducto, $ProveedoridProveedor, $precioproveedor, $anadido, $total);
+        $stmt->bind_param("isiiiii", $entradaproducto, $fecha_entrada, $ProductoidProducto, $ProveedoridProveedor, $precioproveedor, $anadido, $total);
         $stmt->execute();
 
         // Obtener el id del proceso insertado
@@ -164,11 +165,11 @@ public function añadirmovimiento($entradaproducto, $fechaentrada, $ProductoidPr
         // Confirmar la transacción
         $this->Conexion->commit();
         return $idproceso;
-
     } catch (Exception $e) {
-        // En caso de error, hacer rollback
+        // Revertir la transacción en caso de error
         $this->Conexion->rollback();
-        throw $e;
+        error_log("Error en añadirmovimiento: " . $e->getMessage());
+        throw new Exception("Error al procesar el movimiento: " . $e->getMessage());
     }
 }
 
