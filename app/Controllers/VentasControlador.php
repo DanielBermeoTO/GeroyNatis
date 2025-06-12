@@ -53,39 +53,7 @@ if ($elegirAcciones == 'Crear Venta') {
         error_log("Error: Intento de crear venta sin productos válidos");
         throw new Exception("No se han enviado productos válidos.");
     }
-} if ($elegirAcciones == 'Pago') {
-    if (isset($_POST['idFactura'])) {
-        // Sanitizar y validar el ID de la factura
-        $idFactura = filter_var($_POST['idFactura'], FILTER_SANITIZE_NUMBER_INT);
-        if ($idFactura === false || $idFactura <= 0) {
-            error_log("Error: ID de factura inválido recibido");
-            throw new Exception("ID de factura inválido");
-        }
-        
-        // Registrar la acción en el log de forma segura
-        error_log("Procesando pago para factura ID: " . $idFactura);
-        
-        // Procesar el pago
-        $venta->pagarVenta($idFactura, '1', null);
-        header("Location: ../Controllers/VentasControlador.php?message=agregadoexitosamente");
-        exit(); 
-    } else {
-        error_log("Error: Intento de pago sin ID de factura");
-        throw new Exception("No se recibió el ID de la factura.");
-    }
-} if ($elegirAcciones == 'No Pago') {
-    if (isset($_POST['idFactura'])) {
-        $idFactura = filter_var($_POST['idFactura'], FILTER_SANITIZE_NUMBER_INT);
-        error_log("Actualizando estado de no pago para factura ID: " . $idFactura);
-        $venta->nopagarVenta($idFactura, '2', null);
-        header("Location: ../UsuarioControlador/VentasControlador.php?success=1");
-        exit(); 
-    } else {
-        error_log("Error: No se recibió el ID de la factura en la acción de no pago");
-        echo "No se recibió el ID de la factura.";
-    }
 }
-
 
 
 ?>

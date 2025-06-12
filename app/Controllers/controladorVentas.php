@@ -50,25 +50,7 @@ if ($elegirAcciones == 'Crear Venta') {
     } else {
         throw new Exception("No se han enviado productos válidos.");
     }
-} if ($elegirAcciones == 'Pago') {
-    if (isset($_POST['idFactura'])) {
-        $idFactura = $_POST['idFactura'];
-        echo "Intentando actualizar factura con ID: " . $idFactura; // Para depuración
-        $venta->pagarVenta($idFactura, '1', null);  header("Location: ../../app/Views/Admin/RegistroVentas.php?success=1");
-        exit(); 
-    } else {
-        echo "No se recibió el ID de la factura.";
-    }
-} if ($elegirAcciones == 'No Pago') {
-    if (isset($_POST['idFactura'])) {
-        $idFactura = $_POST['idFactura'];
-        echo "Intentando actualizar factura con ID: " . $idFactura; // Para depuración
-        $venta->nopagarVenta($idFactura, '2', null);  header("Location: ../../app/Views/Admin/RegistroVentas.php?success=1");
-        exit(); 
-    } else {
-        echo "No se recibió el ID de la factura.";
-    }
-}
+} 
 
 ?>
 
