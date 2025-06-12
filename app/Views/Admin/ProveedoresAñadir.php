@@ -123,11 +123,11 @@ if (!isset($_SESSION['sesion']) || $_SESSION['sesion'] == "" || $_SESSION['rol']
         <div class="row">
           <div class="col-md-6" style="border: 2px solid black; border-radius: 10px; ">
             <form action="../../../app/Controllers/controladorProveedores.php" class="anadir" method="post" style="padding: 20px;">
-              <div class="correo"><input type="text" name="nombreproveedor" required><label for="">Nombre Proveedor</label></div>
-              <div class="correo"><input type="text" name="Telefono" required><label>Teléfono</label></div>
+              <div class="correo"><input type="text" name="nombreproveedor" id="nombreproveedor" required><label for="nombreproveedor">Nombre Proveedor</label></div>
+              <div class="correo"><input type="text" name="Telefono" id="Telefono" required><label for="Telefono">Teléfono</label></div>
               
               <div class="col-md-12 mb-4">
-                    <label for="status" class="form-label required">Producto</label>
+                    <label for="productos" class="form-label required">Producto</label>
                     <select class="form-select" name="productos"  id="productos">
                         <option value="" selected disabled>Seleccione un Producto</option>
                        <?php foreach($produ as $row) { ?>
