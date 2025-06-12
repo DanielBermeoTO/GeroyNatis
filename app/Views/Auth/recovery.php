@@ -2,13 +2,7 @@
 
 require_once __DIR__ . '/../../Config/Database.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
-require_once __DIR__ . '/../../Config/mail_config.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Nombre : PHPMailer
-// Contraseña: wcrb nibs sbhe fywe
 use App\Config\Database;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -21,7 +15,6 @@ if (!file_exists($envFile)) {
 $envVars = parse_ini_file($envFile);
 
 $mysqli = Database::getConnection();
-$mailConfig = require __DIR__ . '/../../Config/mail_config.php';
 
 $correo = $_POST['correo'];
 $sql = "SELECT * FROM `usuario` WHERE correo = ? AND id_estado = 3;";
