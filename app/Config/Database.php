@@ -15,6 +15,7 @@ class Database
     private static $instance = null;
 
     private function __construct() {}
+    // Constructor privado para evitar la instanciación directa (Patrón Singleton)
 
     public static function loadEnv()
     {
