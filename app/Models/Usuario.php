@@ -113,7 +113,7 @@ class Usuario
         } else {
             throw new Exception("Error al preparar la consulta para la tabla de usuario: " . $this->Conexion->error);
         }
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         // Algo ha fallado, hacemos rollback
         $this->Conexion->rollback();
         echo $e->getMessage();
