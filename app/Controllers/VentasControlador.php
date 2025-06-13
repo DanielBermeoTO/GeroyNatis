@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../Models/VentaU.php";
+require_once __DIR__ . "/../Models/Venta.php";
 
 use App\Models\Venta;
 $venta = new Venta();
