@@ -2,46 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-
-/*.container-fluid {
-  background: linear-gradient(70deg, #b93f39, #c2a8a1);
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 25px;
-  justify-content: center !important;
-  border: 2px solid black;
-}
-
-.navbar-nav .nav-link {
-  color: #000 !important;
-}
-*/
-
-/*
-.navbar-nav .nav-link span {
-  display: inline-block;
-  opacity: 0;
-  position: relative;
-  left: 40px;
-  top: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateX(-10px);
-}
-
-.navbar-nav .nav-link:hover span {
-  opacity: 1;
-  transform: translateX(0);
-  padding: 0 50px 0 0;
-}
-
-.navbar-nav .nav-link:hover i {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.navbar-brand {
-  color: #707070 !important;
-}*/
-
 body {
             background-color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -391,21 +351,7 @@ body {
             color: #a686ca;
             transform: translateY(-1px);
         }
-        
-        .notification-badge {
-            position: absolute;
-            top: -3px;
-            right: -3px;
-            background-color: #ff4081;
-            color: white;
-            border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.6rem;
-        }
+
         
         .avatar-nav {
             width: 35px;
@@ -422,13 +368,6 @@ body {
             transform: scale(1.05);
         }
         
-
-        /* Contenido del body para demostrar */
-        .main-content {
-            background-color: white;
-            padding: 40px 0;
-            min-height: 80vh;
-        }
         
         .content-section {
             background: white;
